@@ -1,0 +1,12 @@
+[input tag name list]
+레시피 제목 recipeTitle
+카테고리(select) recipeCategory
+소요시간 recipeTime
+새료명 ingredientName
+양 ingredientAmount
+단위 선택(select) ingredientUnit
+태그 recipeTag
+
+[upload stylesheets]
+h3 16px 700
+.inputPlace 40

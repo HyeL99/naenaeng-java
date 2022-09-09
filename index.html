@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>내냉 개발중</title>
+    <title>내냉 개발중 - 메인페이지</title>
     <!-- link stylesheet -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
     <link rel="stylesheet" href="css/reset.css" />
@@ -42,15 +42,15 @@
 <body>
     <header>
         <div class="inner flex jusSpaBet alnCen">
-            <h1><a href="/">내냉</a></h1>
+            <h1><a href="index.html">내냉</a></h1>
             <div class="inputPlace">
                 <input type="text" name="search" id="search" placeholder="원하시는 레시피를 찾아가세요! 🥄내냉" autocomplete="off">
             </div>
             <nav>
                 <ul class="gnb flex alnCen">
                     <li><a href="#">추가메뉴</a></li>
-                    <li><a href="#">카테고리</a></li>
-                    <li><a href="#">Login</a></li>
+                    <li><a href="category.html">카테고리</a></li>
+                    <li><a href="login.html">Login</a></li>
                 </ul>
             </nav>
         </div>
@@ -68,7 +68,7 @@
                 <a href="#"><img src="https://via.placeholder.com/400x150/fee190/666666/?text=Title+Image+3" alt="이벤트 이미지3"></a>
             </div>
         </div>
-        <a id="upload">레시피 업로드</a>
+        <a id="upload" href="uploadPage.html">레시피 업로드</a>
     </div>
     <main>
         <section id="main01">
@@ -124,7 +124,8 @@
             <div class="inner">
                 <h2>[업로드된 레시피]</h2>
                 <ul class="recipePlace">
-                    <script>
+                    <script>    // 최신 레시피 리스트 기반으로 article 8개 호출
+                        // 레시피 리스트 가져오기
                         let recipeList = [
                             {
                                 title:"레시피1",
@@ -151,6 +152,7 @@
                                 time: 20
                             }
                         ]
+                        // article을 8개로 제한하기 위한 변수 설정
                         let num = 0;
                         for(let recipe of recipeList){
                             document.write(`
@@ -166,11 +168,13 @@
                                     </article>
                                 </li>
                             `);
+                            // span.tagList 태그 내에 태그 추가
                             for(let k=0; k<recipeList[num].tag.length; k++){
                                 $(`.recipePlace li:eq(${num}) .tagList`).append(`#${recipe.tag[k]} `)
                             }
-                            num++;
+                            num++;  // article 1개를 추가하면 num 1증가
                             console.log(num);
+                            if(num == 8) break;     //article 8개 불러오면 반복문 중단
                         };
                     </script>
                 </ul>
@@ -180,7 +184,8 @@
             <div class="inner">
                 <h2>[추천 레시피 영상]</h2>
                 <ul class="flex fWrap">
-                    <script>
+                    <script>    // 최신 비디오 리스트 기반으로 a태그 4개 호출
+                        // 비디오 리스트 가져오기
                         let videoList = [
                             {
                                 title : "제목1",
@@ -223,12 +228,12 @@
                                 thumbnail : "https://via.placeholder.com/250x145/f4f4f4/666666/?text=Youtube+8"
                             }
                         ];
-                        let i=0;
+                        let i=0;    // 비디오가 연결될  a태그를 4개로 제한하기 위한 변수 설정
                         for(let video of videoList){
                             document.write(`<li><a href="#"><span>${video.title}<span></a></li>`);
                             $(`#main03 ul li:eq(${i}) a`).css('background-image',`url(${video.thumbnail})`);
-                            i++;
-                            //if(i==4) break;
+                            i++;    // a 태그 1개를 추가하면 i 1증가
+                            if(i==4) break; //a 태그 8개 불러오면 반복문 중단
                         }
                     </script>
                 </ul>

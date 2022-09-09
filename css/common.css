@@ -2,6 +2,7 @@
 body {
     background: #eee;
     color: #444;
+    min-width: 800px;
 }
 
 /* class */
