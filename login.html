@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/title.css" />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/login.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/responsive.css" />
     <!-- jQuery script -->
@@ -37,7 +37,18 @@
     </header>
     <main>
         <div class="inner">
-            로그인 페이지
+            <div class="wrap">
+                <div class="face"><span>얼굴이미지</span></div>
+                <div class="content flex fCol">
+                    <h2>내냉</h2>
+                    <button id="loginNaver" onclick="$('#checkLogin').html('Naver');">네이버로 로그인</button>
+                    <button id="loginKakao" onclick="$('#checkLogin').html('Kakao');">카카오로 로그인</button>
+                    <button id="loginGoogle" onclick="$('#checkLogin').html('Google');">구글로 로그인</button>
+                </div>
+                <!-- 로그인 버튼 눌린 것 확인하기 위한 p태그 -->
+                <p>Login? <span id="checkLogin">none</span></p>
+                <p>처음이신가요? <a href="signUp.html">회원가입</a></p>
+            </div>
         </div>
     </main>
     <footer>
@@ -50,5 +61,11 @@
             </ul>
         </div>
     </footer>
+    <!-- 로그인 버튼 눌린 것 확인하기 위한 스크립트 -->
+    <script>
+        function checkLogin(query){
+            $('#checkLogin').html(query);
+        }
+    </script>
 </body>
 </html>
