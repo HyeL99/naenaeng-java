@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/title.css" />
     <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/info.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/responsive.css" />
     <!-- jQuery script -->
@@ -41,7 +42,35 @@
                 <div class="face"><span>얼굴이미지</span></div>
                 <div class="content flex fCol">
                     <h2>내냉</h2>
-                    <p style="margin-bottom: 20px;">아직 해당 페이지 구축을 하지 못했습니다.</p>
+                    <div id="info">
+                        <div class="PageCircle flex jusCen">
+                            <div class="circle active">
+                                개인정보
+                            </div>
+                            <div class="circle">
+                                관심분야
+                            </div>
+                        </div>
+                        <div class="infoPlace flex alnCen">
+                            <span>닉네임</span>
+                            <div><input type="text" name="nickname" id="nickname" autocomplete="off"></div>
+                        </div>
+                        <div class="infoPlace flex alnCen">
+                            <span>프로필</span>
+                            <div class="filePlace flex alnCen">
+                                <input class="uploadName" autocomplete="off">
+                                <label for="file">파일찾기</label>
+                                <input type="file" id="file">
+                            </div>
+                            <script>
+                                $("#file").on('change',function(){
+                                    let fileName = $("#file").val();
+                                    $(".uploadName").val(fileName);
+                                });
+                            </script>
+                        </div>
+                        <button><a href="getInfo02.html">다음</a></button>
+                    </div>
                 </div>
             </div>
         </div>

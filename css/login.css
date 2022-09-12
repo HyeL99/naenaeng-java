@@ -66,6 +66,7 @@ main div.inner div.wrap div.content button {
     position: relative;
     background: #24cd0b;
     color: #fff;
+    cursor: pointer;
 }
 main div.inner div.wrap div.content button::before {
     content: "button-icon";
